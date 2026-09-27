@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+History | PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="page-header"
+             style="padding-top:0;">
+
+            <div class="eyebrow">
+                YOUR ACTIVITY
+            </div>
+
+            <h1>
+                Recommendation History
+            </h1>
+
+            <p>
+                Review your previous planning activity.
+            </p>
+
+        </div>
+
+
+        {% if history and history|length > 0 %}
+
+            <div class="history-list">
+
+                {% for item in history %}
+
+                    <div class="history-item">
+
+                        <div class="history-main">
+
+                            <div class="history-icon">
+
+                                {% if item.planner_type == "home" %}
+                                    🏠
+                                {% elif item.planner_type == "party" %}
+                                    🎉
+                                {% else %}
+                                    💎
+                                {% endif %}
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    {{ item.planner_type|capitalize }}
+                                    Recommendation
+                                </h3>
+
+                                <p>
+                                    {{ item.created_at
+                                       if item.created_at
+                                       else "Previous recommendation" }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="result-category">
+                            View
+                        </span>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    🕘
+                </div>
+
+                <h3>
+                    No history yet
+                </h3>
+
+                <p>
+                    Your generated recommendations will
+                    appear here.
+                </p>
+
+                <div style="margin-top:20px;">
+
+                    <a
+                        href="/dashboard"
+                        class="btn btn-primary"
+                    >
+                        Go to Dashboard
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

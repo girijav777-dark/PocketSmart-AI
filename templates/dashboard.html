@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="section">
+
+    <div class="container">
+
+
+        <!-- WELCOME -->
+
+        <div class="dashboard-welcome">
+
+            <div class="eyebrow">
+                YOUR WORKSPACE
+            </div>
+
+
+            {% set current_user = request.session.get("user") %}
+
+            <h1>
+
+                {% if current_user and current_user.get("name") %}
+
+                    Good morning,
+                    {{ current_user.get("name") }} 👋
+
+                {% elif current_user and current_user.get("email") %}
+
+                    Welcome back 👋
+
+                {% else %}
+
+                    Welcome to PocketSmart AI 👋
+
+                {% endif %}
+
+            </h1>
+
+
+            <p>
+                Choose a planner and create a budget-aware
+                recommendation for your next idea.
+            </p>
+
+        </div>
+
+
+        <!-- PLANNERS -->
+
+        <div class="section-header" style="text-align:left;margin-left:0;margin-bottom:25px;">
+
+            <div class="eyebrow">
+                SMART PLANNERS
+            </div>
+
+            <h2>
+                What would you like to plan?
+            </h2>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- HOME -->
+
+            <div class="dashboard-card large">
+
+                <div class="dashboard-card-top">
+
+                    <div>
+
+                        <div class="dashboard-icon">
+                            🏠
+                        </div>
+
+                        <h3 style="margin-top:18px;">
+                            Home Interior
+                        </h3>
+
+                        <p>
+                            Build a room-by-room plan for
+                            furniture, decor and essentials.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-actions">
+
+                    <a
+                        href="/planner/home"
+                        class="btn btn-primary"
+                    >
+                        Start Home Planning →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARTY -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🎉
+                </div>
+
+                <h3 style="margin-top:18px;">
+                    Party Planner
+                </h3>
+
+                <p>
+                    Allocate your event budget across
+                    venue, food and decoration.
+                </p>
+
+                <div class="dashboard-actions">
+
+                    <a
+                        href="/planner/party"
+                        class="btn btn-secondary"
+                    >
+                        Plan Event →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JEWELRY -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    💎
+                </div>
+
+                <h3 style="margin-top:18px;">
+                    Jewelry Planner
+                </h3>
+
+                <p>
+                    Match jewelry to your occasion,
+                    outfit and personal style.
+                </p>
+
+                <div class="dashboard-actions">
+
+                    <a
+                        href="/planner/jewelry"
+                        class="btn btn-secondary"
+                    >
+                        Find Jewelry →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HISTORY -->
+
+        <div style="margin-top:45px;">
+
+            <div class="section-header"
+                 style="text-align:left;margin-left:0;margin-bottom:20px;">
+
+                <div class="eyebrow">
+                    RECENT ACTIVITY
+                </div>
+
+                <h2>
+                    Your recommendations
+                </h2>
+
+            </div>
+
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    No recommendations yet
+                </h3>
+
+                <p>
+                    Start a planner to generate your
+                    first personalized recommendation.
+                </p>
+
+                <div style="margin-top:20px;">
+
+                    <a
+                        href="/planner/home"
+                        class="btn btn-primary"
+                    >
+                        Create First Plan
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Account | PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="auth-wrapper">
+
+
+        <div class="auth-side">
+
+            <div>
+
+                <div class="brand">
+
+                    <div class="brand-icon">
+                        ✦
+                    </div>
+
+                    <div class="brand-text">
+                        PocketSmart <span>AI</span>
+                    </div>
+
+                </div>
+
+
+                <h2>
+                    Start planning
+                    <br>
+                    smarter today.
+                </h2>
+
+                <p>
+                    Create your account and manage your
+                    personalized budget recommendations.
+                </p>
+
+
+                <div class="auth-points">
+
+                    <div class="auth-point">
+                        ✓
+                        Home Interior Planning
+                    </div>
+
+                    <div class="auth-point">
+                        ✓
+                        Party Planning
+                    </div>
+
+                    <div class="auth-point">
+                        ✓
+                        Jewelry Recommendations
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-form">
+
+            <div class="eyebrow">
+                GET STARTED
+            </div>
+
+            <h1>
+                Create account
+            </h1>
+
+            <p>
+                Set up your PocketSmart AI account.
+            </p>
+
+
+            {% if error %}
+
+            <div class="alert alert-error">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+            <form
+                method="post"
+                action="/register-form"
+            >
+
+                <div class="auth-field">
+
+                    <div class="form-group">
+
+                        <label>
+                            Name
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <div class="form-group">
+
+                        <label>
+                            Email address
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-large btn-full"
+                >
+                    Create Account →
+                </button>
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                Already have an account?
+
+                <a href="/login">
+                    Sign in
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
